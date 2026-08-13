@@ -19,7 +19,7 @@ with orders_flat as (
         cast(raw:updated_at as timestamp_ntz)               as last_updated_at,
         current_timestamp()                                 as dbt_updated_at
     from {{ source('ecommerce', 'raw_orders') }},
-    qualify row_number() over (partition by order_id order by _loaded_at desc) = 1
+    qualify row_number() over (partition by cast(raw:order_id as string) order by _loaded_at desc) = 1
 )
 select
     *
