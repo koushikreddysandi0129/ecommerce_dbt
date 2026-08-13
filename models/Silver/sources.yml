@@ -1,0 +1,15 @@
+version: 2
+
+sources:
+  - name: 'ecommerce'
+    schema: 'bronze'
+    tables:
+      - name: 'raw_customers'
+      
+      - name: 'raw_products'
+
+      - name: 'raw_orders'
+
+      - name: 'raw_payments'
+
+      - name: 'raw_web_events'
